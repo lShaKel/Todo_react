@@ -1,6 +1,4 @@
-import {
-  useContext
-} from "react";
+import {useContext} from "react";
 import AddTaskForm from "./AddTaskForm.jsx";
 import SearchTaskForm from "./SearchTaskForm.jsx";
 import TodoInfo from "./TodoInfo.jsx";
