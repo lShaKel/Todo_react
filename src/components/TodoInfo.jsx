@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const TodoInfo = (props) => {
   const  {
     total,
@@ -6,9 +8,6 @@ const TodoInfo = (props) => {
   } = props
 
   const hasTasks = total > 0
-  const handleClick = (event) => {
-    console.log(event)
-  }
 
   return (
     <div className="todo__info">
@@ -26,4 +25,4 @@ const TodoInfo = (props) => {
   )
 }
 
-export default TodoInfo
+export default memo(TodoInfo)
