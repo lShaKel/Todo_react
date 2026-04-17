@@ -38,7 +38,7 @@ const localAPI = {
       id: crypto?.randomUUID() ?? Date.now().toString(),
     }
 
-    write([...read()], newTask)
+    write([...read(), newTask])
 
     return newTask
   },
