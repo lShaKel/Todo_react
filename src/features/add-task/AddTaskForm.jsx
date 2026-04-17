@@ -1,15 +1,15 @@
-import Field from "../Field/Field.jsx";
-import Button from "../Button/Button.jsx";
+import Field from "@/shared/ui/Field";
+import Button from "@/shared/ui/Button";
 import {useContext, useState} from "react";
-import {TasksContext} from "../../context/TasksContext.jsx";
+import {TasksContext} from "@/entities/todo";
 
 const AddTaskForm = (props) => {
   const {styles} = props
 
+  const [newTaskTitle, setNewTaskTitle] = useState('')
+
   const {
     addTask,
-    newTaskTitle,
-    setNewTaskTitle,
     newTaskInputRef,
   } = useContext(TasksContext)
 
@@ -21,7 +21,10 @@ const AddTaskForm = (props) => {
   const onSubmit = (event) => {
     event.preventDefault()
     if(!isNewTaskTitleEmpty){
-      addTask(clearNewTaskTitle)
+      addTask(
+        clearNewTaskTitle,
+        () => {setNewTaskTitle('')}
+      )
     }
   }
 
