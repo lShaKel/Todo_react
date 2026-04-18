@@ -1,16 +1,74 @@
-# React + Vite
+# Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Simple task manager built with React. 
+### Supports task creation, json-server(only in developer mode), and local storage persistence.
 
-Currently, two official plugins are available:
+## Demo
+#### https://lshakel.github.io/Todo_react/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features:
+* Add and delete tasks
+* Mark tasks as completed
+* Search task
+* Show first incomplete task
+* Tasks are saved in localStorage or on server
+* Responsive UI
 
-## React Compiler
+## Advanced Features:
+* Client-side routing (SPA) 
+* Custom 404 page handling for Github pages
+* Global state management using React Context
+* React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack:
+- React (Hooks, Context API)
+- React Router
+- JavaScript
+- SCSS
+- Vite (build tool)
+- json-server (mock API)
 
-## Expanding the ESLint configuration
+## State Architecture
+- Context API for global state
+- useReducer for state transitions
+- Custom hooks for business logic separation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Custom Hooks
+- useTasks – handles task state logic
+- useIncompleteTaskFinder – to identify the first incomplete task in the list
+
+## Pages:
+- TasksPage – displays list of tasks
+- TaskPage – displays detailed task information
+- NotFoundPage – handles invalid routes and missing tasks
+
+## Routing
+- / – TasksPage (main list view)
+- /tasks/:id – TaskPage (task details view)
+
+Implemented using React Router for SPA navigation.
+
+## Backend (Dev only)
+Mock REST API implemented using json-server for local development.
+
+Run:  
+npm run server
+
+## Deployment
+Deployed using GitHub Pages with gh-pages package.
+
+## Key Design Decisions
+- useReducer was chosen over multiple useState hooks for better state predictability
+- Context API used to avoid prop drilling
+- Memoization applied to reduce unnecessary re-renders in task list
+- Custom hooks introduced to separate business logic from UI components
+
+## Performance
+- React.memo used to prevent unnecessary re-renders of task components
+- useCallback used to stabilize function references
+
+## Installation
+git clone: https://github.com/lShaKel/Todo_react.git  
+cd Todo_react  
+npm install  
+npm run dev 

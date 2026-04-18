@@ -1,6 +1,6 @@
 import {createContext, useMemo} from "react";
 import useTasks from "./useTasks.js";
-import useIncompleteTaskScroll from "./useIncompleteTaskScroll.js";
+import useIncompleteTaskFinder from "./useIncompleteTaskFinder.js";
 
 export const TasksContext = createContext({})
 
@@ -24,7 +24,7 @@ export const TasksProvider = (props) => {
   const {
     firstIncompleteTaskRef,
     firstIncompleteTaskId,
-  } = useIncompleteTaskScroll(tasks)
+  } = useIncompleteTaskFinder(tasks)
 
   const value = useMemo(() => ({
     tasks,
