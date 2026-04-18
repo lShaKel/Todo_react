@@ -1,8 +1,7 @@
 import localAPI from "./local.js";
 import serverAPI from "./server.js";
 
-const isLocal = true
-  //import.meta.env.VITE_STATIC_BACKEND === 'true'
+const isLocal = import.meta.env.VITE_STATIC_BACKEND === 'true'
 
 const tasksAPI = isLocal ? localAPI : serverAPI
 
